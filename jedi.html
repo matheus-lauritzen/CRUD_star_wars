@@ -3,8 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Star Wars</title>
+    <title>Jedi's</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="./assets/favicon1.png" />
 
@@ -20,78 +21,78 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
 </head>
-</head>
-<style>
-    body {
-        background-image: url("./assets/img/fundo_mandalorian.jpg");
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-    }
-</style>
 
-<body id="page-top">
-
+<body>
+    <style>
+        body {
+            background-image: url("./assets/img/fundo_jedi.jpg");
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
     <?php
+    require './classes/Jedi.php';
 
-    if (isset($_POST['nomman'])) {
+    $jedi = new Jedi();
+    $listaDeJedi = $jedi->listar();
 
-        require './classes/Mandalorianos.php';
-
-        $man = new Mandalorianos();
-        $man->inserir($_POST['nomman']);
+    if (isset($_POST['nomjed'])) {
     }
     ?>
 
-    <?php if (isset($_POST['nomman'])) { ?>
-        <script>
-            alert('Novo Mandaloriano inserido com sucesso!');
-        </script>
-    <?php } ?>
+
+
+    <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
         <div class="container px-4 px-lg-5">
             <a class="navbar-brand" href="index.php"><i class="fab fa-jedi-order"></i> Início <i class="fab fa-sith"></i></a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="jedi.php">Jedi's</a></li>
-                    <li class="nav-item"><a class="nav-link" href="sith.php">Sith's</a></li>
-                    <li class="nav-item"><a class="nav-link" href="mandalorianos.php">Mandalorianos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="planeta.php">Planetas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="sobre.php">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="jedi.html">Jedi's</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sith.html">Sith's</a></li>
+                    <li class="nav-item"><a class="nav-link" href="mandalorianos.html">Mandalorianos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="planeta.html">Planetas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
-            <div class="d-flex justify-content-center">
-                <div class="text-center">
-                    <center>
-                        <form action="adicionar_mandalorianos.php" method="post">
-                            <div class="mb-3 col-10 col-md-12" style="text-align: initial;">
-                                <label for="nome" class="form-label" style="text-align: inherit;color:#fff">Adicione um nome para o novo Mandaloriano:</label>
-                                <input type="text" class="form-control" id="nomman" name="nomman">
-                            </div>
-                            <div class="row">
-                                <div class="col-12 col-md-12">
-                                    <button class="btn btn-primary btn-xl" type="submit">Adicionar</button>
-                                </div>
-                            </div>
-                            <br />
-                            <div class="col-12 col-md-12">
-                                <a class="btn btn-primary btn-xl" href="index.php"><i class="fas fa-arrow-alt-circle-left"></i> Voltar ao início</a>
-                                <a class="btn btn-primary btn-xl" href="mandalorianos.php"><i class="fas fa-arrow-alt-circle-left"></i> Voltar a lista de Mandalorianos</a>
-                            </div>
-                        </form>
-                    </center>
-                </div>
-            </div>
-        </div>
-    <center>
+    <div class="d-flex px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center ">
+        <div class=" text-center ">
 
-    </center>
-    <br><br><br>
+            <table class="table table-hover">
+                <thead>
+
+                    <tr class="table">
+                        <td style="color: #fff;">Código</td>
+                        <td style="color: #fff;">Nome do Jedi</td>
+                        <td style="color: #fff;">Ações</td>
+                    </tr>
+                </thead>
+
+
+
+                <tbody>
+                    <?php foreach ($listaDeJedi as $j) { ?>
+                        <tr class="table">
+                            <td style="color: #b3b3b3;"><i style="color: #e5b13a;" class="fas fa-user"></i> <?php echo $j['codjed']; ?></td>
+                            <td style="color: #b3b3b3;"><a style="color: #b3b3b3;" href="editar_jedi.php?codjed=<?php echo $j['codjed']; ?>"> <?php echo $j['nomjed']; ?><i style="color: #e5b13a;" class="far fa-edit"></i></a> </td>
+                            <td><a style="color:#b3b3b3;" href="eliminar_jedi.php?codjed=<?php echo $j['codjed']; ?>">Eliminar<i style="color: #e5b13a;" class="far fa-trash-alt"></i></a></td>
+                        </tr>
+                    <?php } ?>
+
+
+                </tbody>
+
+            </table>
+            <center>
+                <a class="col-md-12" href="adicionar_jedi.php"><button  type="submit" class="btn btn-primary btn-xl">Adicionar um novo Jedi</button></a>
+            </center>
+        </div>
+    </div>
 
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -105,6 +106,5 @@
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 </body>
-
 
 </html>

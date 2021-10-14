@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Star Wars</title>
+    <title>Editar</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="./assets/favicon1.png" />
 
@@ -24,7 +24,7 @@
 <body>
     <style>
         body {
-        background-image: url("./assets/img/fundo_mandalorian.jpg");
+        background-image: url("./assets/img/fundo_jedi.jpg");
         background-attachment: fixed;
         background-repeat: no-repeat;
         background-size: cover;
@@ -35,19 +35,19 @@
 
     $redirecionar = true;
 
-    if (isset($_GET['codman'])) {
-        if (is_numeric($_GET['codman'])) {
+    if (isset($_GET['codjed'])) {
+        if (is_numeric($_GET['codjed'])) {
 
             $redirecionar = false;
 
-            require './classes/Mandalorianos.php';
-            $man = new Mandalorianos();
+            require './classes/Jedi.php';
+            $jed = new Jedi();
 
-            if (isset($_POST['nomman'])) {
+            if (isset($_POST['nomjed'])) {
 
-                $man->editar($_GET['codman'], $_POST['nomman']);
+                $jed->editar($_GET['codjed'], $_POST['nomjed']);
             }
-            $mandalorianos = $man->getMandalorianos($_GET['codman']);
+            $jedi = $jed->getJedi($_GET['codjed']);
         }
     }
 
@@ -58,9 +58,9 @@
 
     ?>
 
-    <?php if (isset($_POST['nomman'])) { ?>
+    <?php if (isset($_POST['nomjed'])) { ?>
         <script>
-            alert('Mandaloriano atualizado com sucesso!');
+            alert('Jedi atualizado com sucesso!');
         </script>
     <?php } ?>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
@@ -69,11 +69,11 @@
             <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="jedi.php">Jedi's</a></li>
-                    <li class="nav-item"><a class="nav-link" href="sith.php">Sith's</a></li>
-                    <li class="nav-item"><a class="nav-link" href="mandalorianos.php">Mandalorianos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="planeta.php">Planetas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="sobre.php">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="jedi.html">Jedi's</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sith.html">Sith's</a></li>
+                    <li class="nav-item"><a class="nav-link" href="mandalorianos.html">Mandalorianos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="planeta.html">Planetas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
                 </ul>
             </div>
         </div>
@@ -82,10 +82,10 @@
             <div class="d-flex justify-content-center">
                 <div class="text-center">
                     <center>
-                        <form action="editar_mandalorianos.php?codman=<?php echo $_GET['codman']; ?>" method="post">
+                        <form action="editar_jedi.php?codjed=<?php echo $_GET['codjed']; ?>" method="post">
                             <div class="mb-3 col-10 col-md-12" style="text-align: initial;">
-                                <label for="nome_mandalorianos" class="form-label" style="text-align: inherit;color:#fff">Editar o nome do Mandaloriano:</label>
-                                <input type="text" value="<?php echo $mandalorianos['nomman']; ?>" class="form-control" id="nomman" name="nomman">
+                                <label for="nome_jedi" class="form-label" style="text-align: inherit;color:#fff">Editar o nome do Jedi:</label>
+                                <input type="text" value="<?php echo $jedi['nomjed']; ?>" class="form-control" id="nomjed" name="nomjed">
                             </div>
                             <div class="row">
                                 <div class="col-12 col-md-12">
@@ -95,7 +95,7 @@
                             <br />
                             <div class="col-12 col-md-12">
                                 <a class="btn btn-primary btn-xl" href="index.php"><i class="fas fa-arrow-alt-circle-left"></i> Voltar o início</a>
-                                <a class="btn btn-primary btn-xl" href="mandalorianos.php"><i class="fas fa-arrow-alt-circle-left"></i> Voltar a lista de Mandalorianos</a>
+                                <a class="btn btn-primary btn-xl" href="jedi.php"><i class="fas fa-arrow-alt-circle-left"></i> Voltar a lista de Jedi's</a>
                             </div>
                         </form>
                     </center>
