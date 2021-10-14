@@ -23,7 +23,7 @@
 </head>
 <style>
     body {
-        background-image: url("./assets/img/fundo_sith.jpg");
+        background-image: url("./assets/img/fundo_jedi.jpg");
         background-attachment: fixed;
         background-repeat: no-repeat;
         background-size: cover;
@@ -35,31 +35,31 @@
 
     <?php
 
-    if (isset($_POST['nomsit'])) {
+    if (isset($_POST['nomjed'])) {
 
-        require './classes/Sith.php';
+        require './classes/Jedi.php';
 
-        $sit = new Sith();
-        $sit->inserir($_POST['nomsit']);
+        $jed = new Jedi();
+        $jed->inserir($_POST['nomjed']);
     }
     ?>
 
-    <?php if (isset($_POST['nomsit'])) { ?>
+    <?php if (isset($_POST['nomjed'])) { ?>
         <script>
-            alert('Novo Sith inserido com sucesso!');
+            alert('Novo Jedi inserido com sucesso!');
         </script>
     <?php } ?>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="index.html"><i class="fab fa-jedi-order"></i> Início <i class="fab fa-sith"></i></a>
+            <a class="navbar-brand" href="index.php"><i class="fab fa-jedi-order"></i> Início <i class="fab fa-sith"></i></a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="jedi.html">Jedi's</a></li>
-                    <li class="nav-item"><a class="nav-link" href="sith.html">Sith's</a></li>
-                    <li class="nav-item"><a class="nav-link" href="mandalorianos.html">Mandalorianos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="planeta.html">Planetas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="jedi.php">Jedi's</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sith.php">Sith's</a></li>
+                    <li class="nav-item"><a class="nav-link" href="mandalorianos.php">Mandalorianos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="planeta.php">Planetas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sobre.php">Sobre</a></li>
                 </ul>
             </div>
         </div>
@@ -68,11 +68,12 @@
             <div class="d-flex justify-content-center">
                 <div class="text-center">
                     <center>
-                        <form action="adicionar_sith.html" method="post">
+                        <form action="adicionar_jedi.php" method="post">
                             <div class="mb-3 col-10 col-md-12" style="text-align: initial;">
-                                <label for="nome" class="form-label" style="text-align: inherit;color:#fff">Adicione um nome para o novo Sith:</label>
-                                <input type="text" class="form-control" id="nomsit" name="nomsit">
+                                <label for="nome" class="form-label" style="text-align: inherit;color:#fff">Adicione um nome para o novo Jedi:</label>
+                                <input type="text" class="form-control" id="nomjed" name="nomjed">
                             </div>
+                            
                             <div class="row">
                                 <div class="col-12 col-md-12">
                                     <button class="btn btn-primary btn-xl" type="submit">Adicionar</button>
@@ -80,8 +81,8 @@
                             </div>
                             <br />
                             <div class="col-12 col-md-12">
-                                <a class="btn btn-primary btn-xl" href="index.html"><i class="fas fa-arrow-alt-circle-left"></i> Voltar ao início</a>
-                                <a class="btn btn-primary btn-xl" href="sith.html"><i class="fas fa-arrow-alt-circle-left"></i> Voltar a lista de Sith's</a>
+                                <a class="btn btn-primary btn-xl" href="index.php"><i class="fas fa-arrow-alt-circle-left"></i> Voltar ao início</a>
+                                <a class="btn btn-primary btn-xl" href="jedi.php"><i class="fas fa-arrow-alt-circle-left"></i> Voltar a lista de Jedi's</a>
                             </div>
                         </form>
                     </center>

@@ -65,15 +65,15 @@
     <?php } ?>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="index.html"><i class="fab fa-jedi-order"></i> Início <i class="fab fa-sith"></i></a>
+            <a class="navbar-brand" href="index.php"><i class="fab fa-jedi-order"></i> Início <i class="fab fa-sith"></i></a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="jedi.html">Jedi's</a></li>
-                    <li class="nav-item"><a class="nav-link" href="sith.html">Sith's</a></li>
-                    <li class="nav-item"><a class="nav-link" href="mandalorianos.html">Mandalorianos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="planeta.html">Planetas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="jedi.php">Jedi's</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sith.php">Sith's</a></li>
+                    <li class="nav-item"><a class="nav-link" href="mandalorianos.php">Mandalorianos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="planeta.php">Planetas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sobre.php">Sobre</a></li>
                 </ul>
             </div>
         </div>
@@ -82,7 +82,7 @@
             <div class="d-flex justify-content-center">
                 <div class="text-center">
                     <center>
-                        <form action="editar_jedi.html?codjed=<?php echo $_GET['codjed']; ?>" method="post">
+                        <form action="editar_jedi.php?codjed=<?php echo $_GET['codjed']; ?>" method="post">
                             <div class="mb-3 col-10 col-md-12" style="text-align: initial;">
                                 <label for="nome_jedi" class="form-label" style="text-align: inherit;color:#fff">Editar o nome do Jedi:</label>
                                 <input type="text" value="<?php echo $jedi['nomjed']; ?>" class="form-control" id="nomjed" name="nomjed">
@@ -94,8 +94,8 @@
                             </div>
                             <br />
                             <div class="col-12 col-md-12">
-                                <a class="btn btn-primary btn-xl" href="index.html"><i class="fas fa-arrow-alt-circle-left"></i> Voltar o início</a>
-                                <a class="btn btn-primary btn-xl" href="jedi.html"><i class="fas fa-arrow-alt-circle-left"></i> Voltar a lista de Jedi's</a>
+                                <a class="btn btn-primary btn-xl" href="index.php"><i class="fas fa-arrow-alt-circle-left"></i> Voltar o início</a>
+                                <a class="btn btn-primary btn-xl" href="jedi.php"><i class="fas fa-arrow-alt-circle-left"></i> Voltar a lista de Jedi's</a>
                             </div>
                         </form>
                     </center>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Planeta</title>
+    <title>Mandalorianos</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="./assets/favicon1.png" />
 
@@ -25,7 +25,7 @@
 <body>
     <style>
         body {
-            background-image: url("./assets/img/fundo_planeta.jpg");
+            background-image: url("./assets/img/fundo_mandalorian.jpg");
             background-attachment: fixed;
             background-repeat: no-repeat;
             background-size: cover;
@@ -33,12 +33,12 @@
         }
     </style>
     <?php
-    require './classes/Planeta.php';
+    require './classes/Mandalorianos.php';
 
-    $planeta = new Planeta();
-    $listaDePlaneta = $planeta->listar();
+    $mandalorianos = new Mandalorianos();
+    $listaDeMandalorianos = $mandalorianos->listar();
 
-    if (isset($_POST['nomplaneta'])) {
+    if (isset($_POST['nomman'])) {
     }
     ?>
 
@@ -47,15 +47,15 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="index.html"><i class="fab fa-jedi-order"></i> Início <i class="fab fa-sith"></i></a>
+            <a class="navbar-brand" href="index.php"><i class="fab fa-jedi-order"></i> Início <i class="fab fa-sith"></i></a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="jedi.html">Jedi's</a></li>
-                    <li class="nav-item"><a class="nav-link" href="sith.html">Sith's</a></li>
-                    <li class="nav-item"><a class="nav-link" href="mandalorianos.html">Mandalorianos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="planeta.html">Planetas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="jedi.php">Jedi's</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sith.php">Sith's</a></li>
+                    <li class="nav-item"><a class="nav-link" href="mandalorianos.php">Mandalorianos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="planeta.php">Planetas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sobre.php">Sobre</a></li>
                 </ul>
             </div>
         </div>
@@ -68,7 +68,7 @@
 
                     <tr class="table">
                         <td style="color: #fff;">Código</td>
-                        <td style="color: #fff;">Nome do Planeta</td>
+                        <td style="color: #fff;">Nome do Mandaloriano</td>
                         <td style="color: #fff;">Ações</td>
                     </tr>
                 </thead>
@@ -76,11 +76,11 @@
 
 
                 <tbody>
-                    <?php foreach ($listaDePlaneta as $p) { ?>
+                    <?php foreach ($listaDeMandalorianos as $m) { ?>
                         <tr class="table">
-                            <td style="color: #b3b3b3;"><i style="color: #e5b13a;" class="fas fa-user"></i> <?php echo $p['codpla']; ?></td>
-                            <td style="color: #b3b3b3;"><a style="color: #b3b3b3;" href="editar_planeta.html?codpla=<?php echo $p['codpla']; ?>"> <?php echo $p['nompla']; ?><i style="color: #e5b13a;" class="far fa-edit"></i></a> </td>
-                            <td><a style="color:#b3b3b3;" href="eliminar_planeta.html?codpla=<?php echo $p['codpla']; ?>">Eliminar<i style="color: #e5b13a;" class="far fa-trash-alt"></i></a></td>
+                            <td style="color: #b3b3b3;"><i style="color: #e5b13a;" class="fas fa-user"></i> <?php echo $m['codman']; ?></td>
+                            <td style="color: #b3b3b3;"><a style="color: #b3b3b3;" href="editar_mandalorianos.php?codman=<?php echo $m['codman']; ?>"> <?php echo $m['nomman']; ?><i style="color: #e5b13a;" class="far fa-edit"></i></a> </td>
+                            <td><a style="color:#b3b3b3;" href="eliminar_mandalorianos.php?codman=<?php echo $m['codman']; ?>">Eliminar<i style="color: #e5b13a;" class="far fa-trash-alt"></i></a></td>
                         </tr>
                     <?php } ?>
 
@@ -89,7 +89,7 @@
 
             </table>
             <center>
-                <a class="col-md-12" href="adicionar_planeta.html"><button  type="submit" class="btn btn-primary btn-xl">Adicionar um novo Planeta</button></a>
+                <a class="col-md-12" href="adicionar_mandalorianos.php"><button  type="submit" class="btn btn-primary btn-xl">Adicionar um novo Mandaloriano</button></a>
             </center>
         </div>
     </div>
